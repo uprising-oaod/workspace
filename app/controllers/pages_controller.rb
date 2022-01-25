@@ -21,6 +21,20 @@ class PagesController < ApplicationController
     end
   end
 
+  def edit
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    @page = Page.find(params[:id])
+
+    if @page.update(page_params)
+      redirect_to @page
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
   def page_params
     params.require(:page).permit(:title, :body)
