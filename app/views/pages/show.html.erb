@@ -4,4 +4,7 @@
 
 <ul>
   <li><%= link_to "Edit", edit_page_path(@page) %></li>
+  <li><%= link_to "Destroy", page_path(@page),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
 </ul>
